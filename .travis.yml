@@ -5,3 +5,4 @@ deploy:
   app: projetwilliam
   on:
     repo: wdjousse/projet
+  run: "rake db:migrate"
