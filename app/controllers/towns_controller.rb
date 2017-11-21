@@ -13,7 +13,7 @@ class TownsController < ApplicationController
     ForecastIO.configure do |c|
       c.api_key = "3686f1fc146f5a8a51de6da56ec0d1a8"
     end
-    @forecast = ForecastIO.forecast(@town.lat, @town.lon)
+    @forecast = ForecastIO.forecast(@town.lat, @town.lon).currently
   end
 
   # GET /towns/new
