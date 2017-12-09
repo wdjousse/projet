@@ -1,10 +1,10 @@
 class Town < ActiveRecord::Base
   
-  before_validation :load_position
+  before_validation :geocode 
+  validates :lat, :lon, presence: true
   
-  private
-  
-  def load_position
+    private
+    def geocode
     places = Nominatim.search(name).limit(1)
     if places.first
       self.lat = places.first.lat
